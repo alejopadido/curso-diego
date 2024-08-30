@@ -54,3 +54,5 @@ Para exportar los archivos de una carpeta desde un archivo barril se usa la mism
 - Exportar app_colors.dart desde el respectivo archivo de barril
 - Crear un archivo app_router.dart sin contendo en /constants y exportarlo
 - Crear un archivo home_screen con un stateless widget que retorne un `Placeholder` en /screens y exportarlo
+
+Hola esto es un cambio
