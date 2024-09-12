@@ -1,4 +1,3 @@
-import 'package:dieguin_app/core/constants/app.colors.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
@@ -9,12 +8,12 @@ class TaskPercent extends StatelessWidget {
       required this.date,
       required this.percentage,
       required this.color,
-      required this.percent_color});
+      required this.percentColor});
   final String task;
   final String date;
   final double percentage;
   final Color color;
-  final Color percent_color;
+  final Color percentColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +33,13 @@ class TaskPercent extends StatelessWidget {
             Text(
               task,
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               date,
-              style: const TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 15),
             ),
             const SizedBox(height: 15),
             Expanded(
@@ -58,12 +57,12 @@ class TaskPercent extends StatelessWidget {
                       lineHeight: 6.0,
                       animationDuration: 2000,
                       percent: percentage,
-                      progressColor: percent_color,
+                      progressColor: percentColor,
                       barRadius: const Radius.circular(20),
                     ),
                     Text(
                       '${percentage * 100}%',
-                      style: const TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 15),
                     )
                   ],
                 ),
