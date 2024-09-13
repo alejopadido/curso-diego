@@ -1,7 +1,7 @@
 import 'package:dieguin_app/core/constants/constants.dart';
 import 'package:dieguin_app/presentation/widgets/calendar.dart';
 import 'package:dieguin_app/presentation/widgets/new_task.dart';
-import 'package:dieguin_app/presentation/widgets/task_List.dart';
+import 'package:dieguin_app/presentation/widgets/task_Added.dart';
 import 'package:dieguin_app/presentation/widgets/task_percent.dart';
 import 'package:flutter/material.dart';
 
@@ -37,16 +37,16 @@ class Home_Screen extends StatelessWidget {
       percentColor: AppColors.boldgreen,
     ),
   ];
-  static const List<TaskList> tasksList = [
-    TaskList(
+  static const List<TaskAdded> tasksList = [
+    TaskAdded(
         title: 'Spreen Meeatin',
         toDo:
             'es una prueba a ver si ese cabeza de zunga me da 10 min para explicarme git, he tenido muchos problemas tratando de hacer un puto commit'),
-    TaskList(
+    TaskAdded(
         title: 'to do in Bogota',
         toDo:
             'Welcome to the sprawling metropolis of Bogota, a melting pot of towering skyscrapers'),
-    TaskList(
+    TaskAdded(
         title: 'Iconic Plaza Bolivar',
         toDo:
             'The heart of the historic center of Bogota is the Plaza Bolivar, surrounded by some of the most')
@@ -149,6 +149,7 @@ class Home_Screen extends StatelessWidget {
                     return tasksList[index];
                   },
                 ),
+                const SizedBox(height: 90)
               ],
             ),
           ),

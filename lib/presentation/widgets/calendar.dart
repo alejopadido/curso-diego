@@ -58,9 +58,3 @@ class Date extends StatelessWidget {
     );
   }
 }
-
-
-
-// Text(DateFormat('dd').format(day)),
-//           Text(DateFormat('EEE').format(day))
-//             DateTime day = DateTime.now();

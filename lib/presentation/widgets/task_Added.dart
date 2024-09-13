@@ -1,18 +1,18 @@
 import 'package:dieguin_app/core/constants/app.colors.dart';
 import 'package:flutter/material.dart';
 
-class TaskList extends StatefulWidget {
-  const TaskList({super.key, required this.title, required this.toDo});
+class TaskAdded extends StatefulWidget {
+  const TaskAdded({super.key, required this.title, required this.toDo});
   final String title;
   final String toDo;
 
   @override
-  State<TaskList> createState() => _TaskListState();
+  State<TaskAdded> createState() => _TaskAddedState();
 }
 
-class _TaskListState extends State<TaskList> {
-  Color color = AppColors.black;
-  IconData icon = Icons.circle;
+class _TaskAddedState extends State<TaskAdded> {
+  Color color = Colors.grey;
+  IconData icon = Icons.circle_outlined;
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,8 @@ class _TaskListState extends State<TaskList> {
                   onPressed: () {
                     setState(() {
                       if (color == AppColors.orange) {
-                        color = AppColors.black;
-                        icon = Icons.circle;
+                        color = Colors.grey;
+                        icon = Icons.circle_outlined;
                       } else {
                         color = AppColors.orange;
                         icon = Icons.check_circle;
