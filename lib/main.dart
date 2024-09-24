@@ -1,8 +1,22 @@
+import 'package:dieguin_app/Providers/projectTaskProvider.dart';
+import 'package:dieguin_app/Providers/taskTodayProvider.dart';
+import 'package:provider/provider.dart';
+
 import 'presentation/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => PercentTaskProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => Tasktodayprovider(),
+      )
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

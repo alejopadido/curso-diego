@@ -1,16 +1,16 @@
+import 'package:dieguin_app/Classes/taskWithCheckMarkClass.dart';
 import 'package:dieguin_app/core/constants/app.colors.dart';
 import 'package:flutter/material.dart';
 
-class TaskAdded extends StatefulWidget {
-  const TaskAdded({super.key, required this.title, required this.toDo});
-  final String title;
-  final String toDo;
+class TaskWithCheckMark extends StatefulWidget {
+  const TaskWithCheckMark({super.key, required this.taskwithcheckmarkclass});
+  final Taskwithcheckmarkclass taskwithcheckmarkclass;
 
   @override
-  State<TaskAdded> createState() => _TaskAddedState();
+  State<TaskWithCheckMark> createState() => _TaskWithCheckMarkState();
 }
 
-class _TaskAddedState extends State<TaskAdded> {
+class _TaskWithCheckMarkState extends State<TaskWithCheckMark> {
   Color color = Colors.grey;
   IconData icon = Icons.circle_outlined;
 
@@ -30,8 +30,8 @@ class _TaskAddedState extends State<TaskAdded> {
                 child: Padding(
               padding: const EdgeInsets.all(13.0),
               child: Content(
-                title: widget.title,
-                toDo: widget.toDo,
+                title: widget.taskwithcheckmarkclass.title,
+                toDo: widget.taskwithcheckmarkclass.toDo,
               ),
             )),
             Padding(

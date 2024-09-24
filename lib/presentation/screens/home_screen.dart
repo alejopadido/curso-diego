@@ -1,56 +1,15 @@
+import 'package:dieguin_app/Providers/projectTaskProvider.dart';
+import 'package:dieguin_app/Providers/taskTodayProvider.dart';
 import 'package:dieguin_app/core/constants/constants.dart';
 import 'package:dieguin_app/presentation/widgets/calendar.dart';
-import 'package:dieguin_app/presentation/widgets/new_task.dart';
-import 'package:dieguin_app/presentation/widgets/task_Added.dart';
-import 'package:dieguin_app/presentation/widgets/task_percent.dart';
+import 'package:dieguin_app/presentation/widgets/createNewTask.dart';
+import 'package:dieguin_app/presentation/widgets/taskWithCheckMark.dart';
+import 'package:dieguin_app/presentation/widgets/propjectWhitPercent.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Home_Screen extends StatelessWidget {
   const Home_Screen({super.key});
-
-  static const List<TaskPercent> tasks = [
-    TaskPercent(
-        task: 'Brandbook for Synthium',
-        date: 'Oct, 15',
-        percentage: 0.95,
-        color: AppColors.lightBlue,
-        percentColor: AppColors.boldblue),
-    TaskPercent(
-      task: 'Working on the moodboard for optimatech',
-      date: 'Oct, 12',
-      percentage: 0.17,
-      color: AppColors.purple,
-      percentColor: AppColors.boldpurple,
-    ),
-    TaskPercent(
-      task: 'AstraTech research and app redisign',
-      date: 'Nov, 28',
-      percentage: 0.73,
-      color: AppColors.beige,
-      percentColor: AppColors.orange,
-    ),
-    TaskPercent(
-      task: 'Smart Home prototype',
-      date: 'Nov, 2',
-      percentage: 0.52,
-      color: AppColors.lightGreen,
-      percentColor: AppColors.boldgreen,
-    ),
-  ];
-  static const List<TaskAdded> tasksList = [
-    TaskAdded(
-        title: 'Spreen Meeatin',
-        toDo:
-            'es una prueba a ver si ese cabeza de zunga me da 10 min para explicarme git, he tenido muchos problemas tratando de hacer un puto commit'),
-    TaskAdded(
-        title: 'to do in Bogota',
-        toDo:
-            'Welcome to the sprawling metropolis of Bogota, a melting pot of towering skyscrapers'),
-    TaskAdded(
-        title: 'Iconic Plaza Bolivar',
-        toDo:
-            'The heart of the historic center of Bogota is the Plaza Bolivar, surrounded by some of the most')
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +71,16 @@ class Home_Screen extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 20),
+                const Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Proyects progress',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
                 //GRIDVIEW.BUILDER
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -125,9 +94,14 @@ class Home_Screen extends StatelessWidget {
                             mainAxisSpacing: 8,
                             crossAxisSpacing: 8),
                     itemBuilder: (_, int index) {
-                      return tasks[index];
+                      return context
+                          .read<PercentTaskProvider>()
+                          .activityWithPercentList[index];
                     },
-                    itemCount: tasks.length,
+                    itemCount: context
+                        .read<PercentTaskProvider>()
+                        .activityWithPercentList
+                        .length,
                   ),
                 ),
                 const Padding(
@@ -144,9 +118,14 @@ class Home_Screen extends StatelessWidget {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: tasksList.length,
+                  itemCount: context
+                      .read<Tasktodayprovider>()
+                      .taskWithCheckMarkList
+                      .length,
                   itemBuilder: (_, int index) {
-                    return tasksList[index];
+                    return context
+                        .read<Tasktodayprovider>()
+                        .taskWithCheckMarkList[index];
                   },
                 ),
                 const SizedBox(height: 90)
@@ -157,7 +136,7 @@ class Home_Screen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.all(12.0),
-              child: NewTask(),
+              child: CreateNewTask(),
             ),
           )
         ],
