@@ -24,7 +24,7 @@ class CreateNewTask extends StatelessWidget {
                     ),
                   ),
                   TextButton.icon(
-                    icon: Icon(Icons.arrow_right),
+                    icon: const Icon(Icons.arrow_right),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -39,7 +39,7 @@ class CreateNewTask extends StatelessWidget {
                     ),
                   ),
                   TextButton.icon(
-                    icon: Icon(Icons.arrow_right),
+                    icon: const Icon(Icons.arrow_right),
                     onPressed: () {},
                     label: const Text('Task  '),
                   ),

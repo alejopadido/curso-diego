@@ -1,4 +1,4 @@
-import 'package:dieguin_app/Classes/activityWithPercentClass.dart';
+import 'package:dieguin_app/Classes/projectWithPercentclass.dart';
 import 'package:dieguin_app/core/constants/app.colors.dart';
 import 'package:dieguin_app/presentation/widgets/propjectWhitPercent.dart';
 import 'package:flutter/material.dart';
@@ -46,4 +46,6 @@ class PercentTaskProvider extends ChangeNotifier {
     activityWithPercentList.add(p);
     notifyListeners();
   }
+
+  void deleteProjectWithPercent(ProjectWithPercent p) {}
 }

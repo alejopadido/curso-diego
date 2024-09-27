@@ -15,7 +15,7 @@ void main() {
         create: (context) => Tasktodayprovider(),
       )
     ],
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 

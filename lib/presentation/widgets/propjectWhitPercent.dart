@@ -1,4 +1,4 @@
-import 'package:dieguin_app/Classes/activityWithPercentClass.dart';
+import 'package:dieguin_app/Classes/projectWithPercentclass.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 

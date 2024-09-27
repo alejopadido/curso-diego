@@ -1,10 +1,7 @@
 import 'package:dieguin_app/Providers/projectTaskProvider.dart';
 import 'package:dieguin_app/Providers/taskTodayProvider.dart';
-import 'package:dieguin_app/core/constants/constants.dart';
 import 'package:dieguin_app/presentation/widgets/calendar.dart';
 import 'package:dieguin_app/presentation/widgets/createNewTask.dart';
-import 'package:dieguin_app/presentation/widgets/taskWithCheckMark.dart';
-import 'package:dieguin_app/presentation/widgets/propjectWhitPercent.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -72,7 +69,7 @@ class Home_Screen extends StatelessWidget {
 
                 const SizedBox(height: 20),
                 const Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     'Proyects progress',
                     style: TextStyle(

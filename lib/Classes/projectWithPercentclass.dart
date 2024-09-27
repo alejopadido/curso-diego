@@ -3,6 +3,7 @@ import 'dart:ui';
 class ProjectWithPercentclass {
   String task;
   String date;
+  String? description;
   double percentage;
   Color color;
   Color percentColor;
