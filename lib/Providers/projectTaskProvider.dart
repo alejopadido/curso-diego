@@ -43,8 +43,11 @@ class PercentTaskProvider extends ChangeNotifier {
   ];
 
   void addProjectWithPercent(ProjectWithPercent p) {
+    print('estoy siendo llamada');
     activityWithPercentList.add(p);
+    print('efectivo 1');
     notifyListeners();
+    print('efectivo');
   }
 
   void deleteProjectWithPercent(ProjectWithPercent p) {}

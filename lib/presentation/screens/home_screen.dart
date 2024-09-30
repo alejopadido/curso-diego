@@ -92,7 +92,7 @@ class Home_Screen extends StatelessWidget {
                             crossAxisSpacing: 8),
                     itemBuilder: (_, int index) {
                       return context
-                          .read<PercentTaskProvider>()
+                          .watch<PercentTaskProvider>()
                           .activityWithPercentList[index];
                     },
                     itemCount: context
