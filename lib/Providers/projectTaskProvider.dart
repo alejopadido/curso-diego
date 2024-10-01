@@ -6,48 +6,17 @@ import 'package:flutter/material.dart';
 class PercentTaskProvider extends ChangeNotifier {
   List<ProjectWithPercent> activityWithPercentList = [
     ProjectWithPercent(
-      activitywithpercentclass: ProjectWithPercentclass(
-          task: 'Brandbook for Synthium',
-          date: 'Oct, 15',
-          percentage: 0.95,
-          color: AppColors.lightBlue,
-          percentColor: AppColors.boldblue),
-    ),
-    ProjectWithPercent(
-      activitywithpercentclass: ProjectWithPercentclass(
-        task: 'Working on the moodboard for optimatech',
-        date: 'Oct, 12',
-        percentage: 0.17,
-        color: AppColors.purple,
-        percentColor: AppColors.boldpurple,
-      ),
-    ),
-    ProjectWithPercent(
-      activitywithpercentclass: ProjectWithPercentclass(
-        task: 'AstraTech research and app redisign',
-        date: 'Nov, 28',
-        percentage: 0.73,
-        color: AppColors.beige,
-        percentColor: AppColors.orange,
-      ),
-    ),
-    ProjectWithPercent(
-      activitywithpercentclass: ProjectWithPercentclass(
-        task: 'Smart Home prototype',
-        date: 'Nov, 2',
-        percentage: 0.52,
-        color: AppColors.lightGreen,
-        percentColor: AppColors.boldgreen,
-      ),
-    ),
+        activitywithpercentclass: ProjectWithPercentclass(
+            task: 'Primer Proyecto',
+            date: '20 Oct, 2024',
+            color: AppColors.lightBlue,
+            percentColor: AppColors.boldblue,
+            percentage: 0))
   ];
 
   void addProjectWithPercent(ProjectWithPercent p) {
-    print('estoy siendo llamada');
     activityWithPercentList.add(p);
-    print('efectivo 1');
     notifyListeners();
-    print('efectivo');
   }
 
   void deleteProjectWithPercent(ProjectWithPercent p) {}

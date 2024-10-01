@@ -10,6 +10,72 @@ class Home_Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+//NULL VERIFICATION IN THE GRID
+    Widget gridViewVerification() {
+      if (context
+          .watch<PercentTaskProvider>()
+          .activityWithPercentList
+          .isEmpty) {
+        return const SizedBox(
+          height: 100,
+          width: 150,
+          child: Center(
+            child: Text(
+              'There are not projects yet',
+              style: TextStyle(fontSize: 22, color: Colors.grey),
+            ),
+          ),
+        );
+      } else {
+        return GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              // mainAxisExtent: 3,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8),
+          itemBuilder: (_, int index) {
+            return context
+                .watch<PercentTaskProvider>()
+                .activityWithPercentList[index];
+          },
+          itemCount: context
+              .read<PercentTaskProvider>()
+              .activityWithPercentList
+              .length,
+        );
+      }
+    }
+
+//NULL VERIFICATION IN THE LIST
+    Widget listViewVerificaction() {
+      if (context.read<Tasktodayprovider>().taskWithCheckMarkList.isEmpty) {
+        return const SizedBox(
+          height: 100,
+          width: 150,
+          child: Center(
+            child: Text(
+              'There are not tasks yet',
+              style: TextStyle(fontSize: 22, color: Colors.grey),
+            ),
+          ),
+        );
+      } else {
+        return ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount:
+              context.read<Tasktodayprovider>().taskWithCheckMarkList.length,
+          itemBuilder: (_, int index) {
+            return context
+                .read<Tasktodayprovider>()
+                .taskWithCheckMarkList[index];
+          },
+        );
+      }
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -81,25 +147,7 @@ class Home_Screen extends StatelessWidget {
                 //GRIDVIEW.BUILDER
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            // mainAxisExtent: 3,
-                            mainAxisSpacing: 8,
-                            crossAxisSpacing: 8),
-                    itemBuilder: (_, int index) {
-                      return context
-                          .watch<PercentTaskProvider>()
-                          .activityWithPercentList[index];
-                    },
-                    itemCount: context
-                        .read<PercentTaskProvider>()
-                        .activityWithPercentList
-                        .length,
-                  ),
+                  child: gridViewVerification(),
                 ),
                 const Padding(
                   padding:
@@ -112,19 +160,8 @@ class Home_Screen extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: context
-                      .read<Tasktodayprovider>()
-                      .taskWithCheckMarkList
-                      .length,
-                  itemBuilder: (_, int index) {
-                    return context
-                        .read<Tasktodayprovider>()
-                        .taskWithCheckMarkList[index];
-                  },
-                ),
+                listViewVerificaction(),
+
                 const SizedBox(height: 90)
               ],
             ),

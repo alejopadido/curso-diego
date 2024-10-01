@@ -7,48 +7,14 @@ class CreateNewTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showDialog(
-        context: context,
-        builder: (context) {
-          return Dialog(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 12.0),
-                    child: Text(
-                      'WHAT DO YOU WANT TO CREATE?',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  TextButton.icon(
-                    icon: const Icon(Icons.arrow_right),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NewprojectScreen(),
-                        ),
-                      );
-                    },
-                    label: const Text(
-                      'Project',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                  TextButton.icon(
-                    icon: const Icon(Icons.arrow_right),
-                    onPressed: () {},
-                    label: const Text('Task  '),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NewprojectScreen(),
+          ),
+        );
+      },
       child: Container(
         decoration: BoxDecoration(
             color: Colors.black, borderRadius: BorderRadius.circular(18)),
@@ -64,7 +30,7 @@ class CreateNewTask extends StatelessWidget {
               width: 17,
             ),
             Text(
-              'Create new ...',
+              'Create new Project',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
