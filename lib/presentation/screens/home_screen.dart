@@ -41,7 +41,7 @@ class Home_Screen extends StatelessWidget {
                 .activityWithPercentList[index];
           },
           itemCount: context
-              .read<PercentTaskProvider>()
+              .watch<PercentTaskProvider>()
               .activityWithPercentList
               .length,
         );
@@ -50,7 +50,7 @@ class Home_Screen extends StatelessWidget {
 
 //NULL VERIFICATION IN THE LIST
     Widget listViewVerificaction() {
-      if (context.read<Tasktodayprovider>().taskWithCheckMarkList.isEmpty) {
+      if (context.watch<Tasktodayprovider>().taskWithCheckMarkList.isEmpty) {
         return const SizedBox(
           height: 100,
           width: 150,
@@ -66,10 +66,10 @@ class Home_Screen extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount:
-              context.read<Tasktodayprovider>().taskWithCheckMarkList.length,
+              context.watch<Tasktodayprovider>().taskWithCheckMarkList.length,
           itemBuilder: (_, int index) {
             return context
-                .read<Tasktodayprovider>()
+                .watch<Tasktodayprovider>()
                 .taskWithCheckMarkList[index];
           },
         );

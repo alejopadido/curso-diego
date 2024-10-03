@@ -2,71 +2,73 @@ import 'package:dieguin_app/core/constants/app.colors.dart';
 import 'package:flutter/material.dart';
 
 // class DropDownColorsMenu extends StatefulWidget {
-//   const DropDownColorsMenu({super.key});
+//   DropDownColorsMenu({
+//     super.key,
+//   });
+//   Color value = AppColors.grey;
 
 //   @override
 //   State<DropDownColorsMenu> createState() => _DropDownColorsMenuState();
 // }
 
 // class _DropDownColorsMenuState extends State<DropDownColorsMenu> {
-//   Color _value = AppColors.orange;
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Flexible(
 //       child: DropdownButton<Color>(
+
+//         dropdownColor: Colors.grey.shade100,
+//         hint: const Text('Choose a color for your project'),
 //         items: const [
 //           DropdownMenuItem<Color>(
-//             child: Text('orange'),
 //             value: AppColors.orange,
+//             child: Center(child: Text('Orange')),
 //           ),
 //           DropdownMenuItem<Color>(
-//             child: Text('Grey'),
 //             value: AppColors.grey,
+//             child: Center(child: Text('Grey')),
 //           ),
 //           DropdownMenuItem<Color>(
-//             child: Text('Purple'),
 //             value: AppColors.purple,
+//             child: Center(child: Text('Purple')),
 //           ),
 //           DropdownMenuItem<Color>(
-//             child: Text('Purple'),
-//             value: AppColors.purple,
+//             value: AppColors.lightGreen,
+//             child: Center(child: Text('Green')),
 //           ),
 //           DropdownMenuItem<Color>(
-//             child: Text('Blue'),
 //             value: AppColors.lightBlue,
+//             child: Center(child: Text('Blue')),
 //           ),
 //         ],
 //         onChanged: (Color? c) {
 //           setState(() {
-//             _value = c!;
+//             widget.value = c!;
 //           });
 //         },
-//         value: _value,
+//         value: widget.value,
+//         icon: Icon(Icons.arrow_drop_down_circle, color: widget.value),
 //       ),
 //     );
 //   }
 // }
-import 'package:dieguin_app/core/constants/app.colors.dart';
-import 'package:flutter/material.dart';
+class DropDownColorsMenu extends StatelessWidget {
+  final Color value;
+  final ValueChanged<Color?>? onChanged;
 
-class DropDownColorsMenu extends StatefulWidget {
   DropDownColorsMenu({
     super.key,
+    required this.value,
+    this.onChanged,
   });
-  Color value = AppColors.grey;
 
-  @override
-  State<DropDownColorsMenu> createState() => _DropDownColorsMenuState();
-}
-
-class _DropDownColorsMenuState extends State<DropDownColorsMenu> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
       child: DropdownButton<Color>(
         dropdownColor: Colors.grey.shade100,
         hint: const Text('Choose a color for your project'),
+        value: value,
         items: const [
           DropdownMenuItem<Color>(
             value: AppColors.orange,
@@ -89,13 +91,8 @@ class _DropDownColorsMenuState extends State<DropDownColorsMenu> {
             child: Center(child: Text('Blue')),
           ),
         ],
-        onChanged: (Color? c) {
-          setState(() {
-            widget.value = c!;
-          });
-        },
-        value: widget.value,
-        icon: Icon(Icons.arrow_drop_down_circle, color: widget.value),
+        onChanged: onChanged, // Llamar a la función pasada
+        icon: Icon(Icons.arrow_drop_down_circle, color: value),
       ),
     );
   }

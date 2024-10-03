@@ -54,3 +54,7 @@ Para exportar los archivos de una carpeta desde un archivo barril se usa la mism
 - Exportar app_colors.dart desde el respectivo archivo de barril
 - Crear un archivo app_router.dart sin contendo en /constants y exportarlo
 - Crear un archivo home_screen con un stateless widget que retorne un `Placeholder` en /screens y exportarlo
+
+### Preguntas
+- hay un problema en la parte de descripcion del provider porque cuando creo el project la descripcion que coloco al crearlo, luego no se ve reflejado en el los detalles del projecto
+- Como agrego la terea que se agrego al provider de tareaas a cada uno de los projectos?

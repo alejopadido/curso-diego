@@ -1,7 +1,9 @@
 import 'package:dieguin_app/core/constants/app.colors.dart';
+import 'package:dieguin_app/main.dart';
 import 'package:dieguin_app/presentation/widgets/addTaskForProject.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Projectdetail extends StatelessWidget {
   const Projectdetail({
@@ -21,6 +23,30 @@ class Projectdetail extends StatelessWidget {
       t,
       style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
     );
+  }
+
+  Widget taskListForThisProject() {
+    if (list == null) {
+      return const SizedBox(
+        height: 100,
+        width: 150,
+        child: Center(
+          child: Text(
+            'There are not tasks yet',
+            style: TextStyle(fontSize: 22, color: Colors.grey),
+          ),
+        ),
+      );
+    } else {
+      return ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: list?.length,
+        itemBuilder: (_, int index) {
+          return list?[index];
+        },
+      );
+    }
   }
 
   @override
@@ -62,12 +88,15 @@ class Projectdetail extends StatelessWidget {
             ),
             //TASKSLIST
             titleOfEachSection('Tasks for this project:'),
+            taskListForThisProject(),
             //
           ],
         ),
       ),
       //ADD TASK
-      floatingActionButton: Addtaskforproject(),
+      floatingActionButton: Addtaskforproject(
+        eachProjectList: list,
+      ),
     );
   }
 }

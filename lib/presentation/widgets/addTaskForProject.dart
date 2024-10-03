@@ -10,7 +10,9 @@ import 'package:provider/provider.dart';
 class Addtaskforproject extends StatelessWidget {
   Addtaskforproject({
     super.key,
+    this.eachProjectList,
   });
+  final List? eachProjectList;
   final titlecontroller = TextEditingController();
   final contentController = TextEditingController();
 
@@ -58,11 +60,9 @@ class Addtaskforproject extends StatelessWidget {
                             title: contentControllerText,
                             toDo: TitleControllerText));
                     //ADD TO THE TASKPROVIDER
-                    Provider.of<Tasktodayprovider>(context, listen: false)
-                        .addTaskFuntion(newTask);
-                    // context.watch<Tasktodayprovider>().addTaskFuntion(newTask);
-                    // Navigator.pop(context);
-                    //ADD TO THE PROJECT
+                    context.read<Tasktodayprovider>().addTaskFuntion(newTask);
+                    eachProjectList?.add(newTask);
+                    //ADD TO THE PROJECTLIST
                     Navigator.pop(context);
                   },
                   child: const Text('Done'),
